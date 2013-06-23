@@ -5,16 +5,21 @@ const float speed = 220.0;
 
 enum StatesTypes {
 	NONE,
+	START,
 
 	//States for player
 	TOLEFT,
 	TORIGTH,
+	TODOWN,
+	TOTOP,
 	TOFIRE
 };
 
 struct States
 {
 	int playerStates;
+	int ballStatesX;
+	int ballStatesY;
 	int gameStates;
 };
 

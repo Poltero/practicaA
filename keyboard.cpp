@@ -32,6 +32,11 @@ void keyPress( const KeyType key, World& world )
 			break;
 		case KEY_FIRE:
 			world.states.playerStates = TOFIRE;
+			if(world.states.gameStates == NONE) {
+				world.states.gameStates = START;
+				world.states.ballStatesX = TOLEFT;
+				world.states.ballStatesY = TOTOP;
+			}
 			break;
 	}
 }

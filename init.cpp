@@ -72,4 +72,9 @@ void init( World& world )
 	world.prueba.height = 20;
 	world.prueba.color = RED;
 
+
+
+
+	world.states.gameStates = NONE;
+
 }

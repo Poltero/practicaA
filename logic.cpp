@@ -7,7 +7,7 @@ void logic( World& world )
 	//creo el reloj del juego
 	buildTime(world.time);
 
-	//controlo los estados del teclado
+	//Control de los estados del teclado
 	switch(world.states.playerStates) {
 	case TOLEFT:
 		if(world.ship.position.x >= 0)
@@ -30,6 +30,29 @@ void logic( World& world )
 		break;
 
 	}
+
+	//Control de los estados de la pelota
+
+	if(world.states.gameStates == START) {
+		moveBall(world.ball, world.states, world.lastTime);
+
+		if(shockWall(world.ball, world.wall))
+		{
+			if(world.wall == Walls::RIGHT) {
+				world.states.ballStatesX = TOLEFT;
+
+
+			}
+			else if(world.wall == Walls::LEFT) {
+				world.states.ballStatesX = TORIGTH;
+			}
+			else if(world.wall == Walls::TOP) {
+				world.states.ballStatesY = TODOWN;
+			}
+		}
+	
+	}
+
 	/*if(world.states.stateMoveLeft)
 	{
 		if(world.ship.position.x > 0)
