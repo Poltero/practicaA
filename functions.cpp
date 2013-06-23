@@ -187,11 +187,29 @@ bool shockWall(Ball ball, int &wall)
 	return shock;
 }
 
-/*void moveBall(Ball& ball, States states, int lastime)
+void moveBall(Ball& ball, States states, int lastime)
 {
 	float space = spaceMove(lastime);
 
-	if(!states.stateGameOver)
+	switch(states.ballStatesX) {
+	case TOLEFT:
+		ball.position.x += space;
+		break;
+	case TORIGTH:
+		ball.position.x -= space;
+		break;
+	}
+
+	switch(states.ballStatesY) {
+	case TOTOP:
+		ball.position.y += space;
+		break;
+	case TODOWN:
+		ball.position.y -= space;
+		break;
+	}
+
+	/*if(!states.stateGameOver)
 	{
 		if(states.stateBallDirectionX && states.stateBallDirectionY)
 		{
@@ -218,8 +236,8 @@ bool shockWall(Ball ball, int &wall)
 				ball.position.y -= space;
 			}
 		}
-	}
-}*/
+	}*/
+}
 
 void setSquareIncludesBall(Ball& ball, Box& includesBall)
 {

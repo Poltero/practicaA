@@ -35,7 +35,6 @@ void logic( World& world )
 
 	if(world.states.gameStates == START) {
 		moveBall(world.ball, world.states, world.lastTime);
-
 		if(shockWall(world.ball, world.wall))
 		{
 			if(world.wall == Walls::RIGHT) {
@@ -49,8 +48,13 @@ void logic( World& world )
 			else if(world.wall == Walls::TOP) {
 				world.states.ballStatesY = TODOWN;
 			}
+
+		}else {
+			
 		}
 	
+	}else {
+		world.ball.position.x = world.ship.position.x + (world.ship.width / 2);
 	}
 
 	/*if(world.states.stateMoveLeft)
