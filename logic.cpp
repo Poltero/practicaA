@@ -34,7 +34,7 @@ void logic( World& world )
 	//Control de los estados de la pelota
 
 	if(world.states.gameStates == START) {
-		moveBall(world.ball, world.states, world.lastTime);
+		
 		if(shockWall(world.ball, world.wall))
 		{
 			if(world.wall == Walls::RIGHT) {
@@ -49,9 +49,9 @@ void logic( World& world )
 				world.states.ballStatesY = TODOWN;
 			}
 
-		}else {
-			
 		}
+		
+		moveBall(world.ball, world.states, world.lastTime);
 	
 	}else {
 		world.ball.position.x = world.ship.position.x + (world.ship.width / 2);
