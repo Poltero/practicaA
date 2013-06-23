@@ -50,7 +50,7 @@ void init( World& world )
 
 	//estados del juego
 
-	world.states.stateMoveLeft = false;
+	/*world.states.stateMoveLeft = false;
 	world.states.stateMoveRight = false;
 	world.states.stateStartGame = false;
 	world.states.stateMoveBallTopLeft = false;
@@ -64,12 +64,17 @@ void init( World& world )
 	world.states.stateBallDirectionX = true;
 
 	//true el arriba y false es abajo
-	world.states.stateBallDirectionY = true;
+	world.states.stateBallDirectionY = true;*/
 
 	world.prueba.position.x = 150;
 	world.prueba.position.y = 200;
 	world.prueba.width = 65;
 	world.prueba.height = 20;
 	world.prueba.color = RED;
+
+
+
+
+	world.states.gameStates = NONE;
 
 }

@@ -1,20 +1,26 @@
 #pragma once
 
-const float speed = 150.0;
+const float speed = 220.0;
+
+
+enum StatesTypes {
+	NONE,
+	START,
+
+	//States for player
+	TOLEFT,
+	TORIGTH,
+	TODOWN,
+	TOTOP,
+	TOFIRE
+};
 
 struct States
 {
-	bool stateMoveLeft;
-	bool stateMoveRight;
-	bool stateStartGame;
-	bool stateMoveBallTopLeft;
-	bool stateMoveBallTopRight;
-	bool stateMoveBallBottomLeft;
-	bool stateMoveBallBottomRight;
-	bool stateGameOver;
-
-	bool stateBallDirectionX;
-	bool stateBallDirectionY;
+	int playerStates;
+	int ballStatesX;
+	int ballStatesY;
+	int gameStates;
 };
 
 struct Point
@@ -56,6 +62,7 @@ struct World
 {
 	Box infoBox;
 	Box gameBox;
+
 	States states; 
 
 	Star* stars;

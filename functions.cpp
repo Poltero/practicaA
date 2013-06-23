@@ -158,27 +158,27 @@ void getLastTime(World &world)
 	world.lastTime = getTime();
 }
 
-bool shockWall(Ball ball, int &wall)
+bool shockWall(Box includesBall, int &wall)
 {
 	bool shock = false;
 
-	if(ball.position.x > 499)
+	if((includesBall.position.x + includesBall.width) > 500)
 	{
 		wall = Walls::RIGHT;
 		shock = true;
 	}
-	else if(ball.position.x < 1)
+	else if(includesBall.position.x < 0)
 	{
 		wall = Walls::LEFT;
 		shock = true;
 	}
-	else if(ball.position.y > 459)
+	else if(includesBall.position.y > 460)
 	{
 		wall = Walls::TOP;
 		shock = true;
 	}
 
-	else if(ball.position.y < 1)
+	else if(includesBall.position.y < 0)
 	{
 		wall = Walls::DOWN;
 		shock = true;
@@ -191,7 +191,25 @@ void moveBall(Ball& ball, States states, int lastime)
 {
 	float space = spaceMove(lastime);
 
-	if(!states.stateGameOver)
+	switch(states.ballStatesX) {
+		case TOLEFT:
+			ball.position.x -= space;
+			break;
+		case TORIGTH:
+			ball.position.x += space;
+			break;
+	}
+
+	switch(states.ballStatesY) {
+		case TOTOP:
+			ball.position.y += space;
+			break;
+		case TODOWN:
+			ball.position.y -= space;
+			break;
+	}
+
+	/*if(!states.stateGameOver)
 	{
 		if(states.stateBallDirectionX && states.stateBallDirectionY)
 		{
@@ -218,7 +236,7 @@ void moveBall(Ball& ball, States states, int lastime)
 				ball.position.y -= space;
 			}
 		}
-	}
+	}*/
 }
 
 void setSquareIncludesBall(Ball& ball, Box& includesBall)

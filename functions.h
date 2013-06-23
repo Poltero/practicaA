@@ -11,7 +11,7 @@ void paintBall(Ball ball);
 void getLastTime(World &world);
 float spaceMove(float lastime);
 void moveBall(Ball& ball, States states, int lastime);
-bool shockWall(Ball ball, int &wall);
+bool shockWall(Box includesBall, int &wall);
 void log(const string msg);
 void setSquareIncludesBall(Ball& ball, Box& includesBall);
 bool checkCollision(Box includesBall, Box rectangle);
