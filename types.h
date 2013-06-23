@@ -4,17 +4,8 @@ const float speed = 150.0;
 
 struct States
 {
-	bool stateMoveLeft;
-	bool stateMoveRight;
-	bool stateStartGame;
-	bool stateMoveBallTopLeft;
-	bool stateMoveBallTopRight;
-	bool stateMoveBallBottomLeft;
-	bool stateMoveBallBottomRight;
-	bool stateGameOver;
-
-	bool stateBallDirectionX;
-	bool stateBallDirectionY;
+	string playerStates;
+	string gameStates;
 };
 
 struct Point
@@ -56,6 +47,7 @@ struct World
 {
 	Box infoBox;
 	Box gameBox;
+
 	States states; 
 
 	Star* stars;

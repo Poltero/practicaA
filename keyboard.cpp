@@ -24,11 +24,10 @@ void keyPress( const KeyType key, World& world )
 		case KEY_HALT:
 			exit(0); //salimos del programa
 		case KEY_LEFT:
-			//to do
+			world.states.playerStates = "toleft";
 		case KEY_RIGHT:
-			//to do
+			world.states.playerStates = "torigth";
 		case KEY_FIRE:
-			//to do
-		
+			world.states.playerStates = "tofire";
 	}
 }
