@@ -187,7 +187,7 @@ bool shockWall(Ball ball, int &wall)
 	return shock;
 }
 
-void moveBall(Ball& ball, States states, int lastime)
+/*void moveBall(Ball& ball, States states, int lastime)
 {
 	float space = spaceMove(lastime);
 
@@ -219,7 +219,7 @@ void moveBall(Ball& ball, States states, int lastime)
 			}
 		}
 	}
-}
+}*/
 
 void setSquareIncludesBall(Ball& ball, Box& includesBall)
 {

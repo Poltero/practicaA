@@ -1,11 +1,21 @@
 #pragma once
 
-const float speed = 150.0;
+const float speed = 220.0;
+
+
+enum StatesTypes {
+	NONE,
+
+	//States for player
+	TOLEFT,
+	TORIGTH,
+	TOFIRE
+};
 
 struct States
 {
-	string playerStates;
-	string gameStates;
+	int playerStates;
+	int gameStates;
 };
 
 struct Point

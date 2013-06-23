@@ -8,7 +8,29 @@ void logic( World& world )
 	buildTime(world.time);
 
 	//controlo los estados del teclado
-	if(world.states.stateMoveLeft)
+	switch(world.states.playerStates) {
+	case TOLEFT:
+		if(world.ship.position.x >= 0)
+		{
+			world.ship.position.x -= spaceMove(world.lastTime);
+		}
+
+		world.states.playerStates = NONE;
+
+		break;
+
+	case TORIGTH:
+		if((world.ship.position.x + world.ship.width) <= 500)
+		{
+			world.ship.position.x += spaceMove(world.lastTime);
+		}
+
+		world.states.playerStates = NONE;
+
+		break;
+
+	}
+	/*if(world.states.stateMoveLeft)
 	{
 		if(world.ship.position.x > 0)
 		{
@@ -58,15 +80,15 @@ void logic( World& world )
 				world.states.stateGameOver = true;
 			}
 		}
-	}
+	}*/
 
 	
-	setSquareIncludesBall(world.ball, world.includesBall);
+	/*setSquareIncludesBall(world.ball, world.includesBall);
 
 	if(checkCollision(world.includesBall, world.ship) || checkCollision(world.includesBall, world.prueba))
 	{
 		world.states.stateBallDirectionY = true;
-	}
+	}*/
 
 
 
