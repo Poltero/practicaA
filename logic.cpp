@@ -35,7 +35,7 @@ void logic( World& world )
 
 	if(world.states.gameStates == START) {
 		
-		if(shockWall(world.ball, world.wall))
+		if(shockWall(world.includesBall, world.wall))
 		{
 			if(world.wall == Walls::RIGHT) {
 				world.states.ballStatesX = TOLEFT;
@@ -56,6 +56,9 @@ void logic( World& world )
 	}else {
 		world.ball.position.x = world.ship.position.x + (world.ship.width / 2);
 	}
+
+
+	setSquareIncludesBall(world.ball, world.includesBall);
 
 	/*if(world.states.stateMoveLeft)
 	{
