@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="cpp lib">
+      <UniqueIdentifier>{4fd211a7-e3ad-4914-bb87-af6279dd9980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h lib">
+      <UniqueIdentifier>{f140023c-1efa-4f94-bba9-0a88be94da49}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="paint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="keyboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="init.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\base.cpp">
+      <Filter>cpp lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\main.cpp">
+      <Filter>cpp lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\lib_util.cpp">
+      <Filter>cpp lib</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\gl_util.cpp">
+      <Filter>cpp lib</Filter>
+    </ClCompile>
+    <ClCompile Include="functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="keyboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="paint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="init.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\lib_util.h">
+      <Filter>h lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\glut.h">
+      <Filter>h lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\gl_util.h">
+      <Filter>h lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\common.h">
+      <Filter>h lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\base.h">
+      <Filter>h lib</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\lib_types.h">
+      <Filter>h lib</Filter>
+    </ClInclude>
+    <ClInclude Include="functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

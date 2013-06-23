@@ -1,0 +1,7 @@
+#Delete file opensdf
+
+*.opensdf
+Debug/
+ipch/
+lib/
+
