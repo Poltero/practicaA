@@ -208,35 +208,6 @@ void moveBall(Ball& ball, States states, int lastime)
 			ball.position.y -= space;
 			break;
 	}
-
-	/*if(!states.stateGameOver)
-	{
-		if(states.stateBallDirectionX && states.stateBallDirectionY)
-		{
-			ball.position.x += space;
-			ball.position.y += space;
-		}
-		else
-		{
-			if(states.stateBallDirectionX)
-			{
-				ball.position.x += space;
-			}
-			else
-			{
-				ball.position.x -= space;
-			}
-
-			if(states.stateBallDirectionY)
-			{
-				ball.position.y += space;
-			}
-			else
-			{
-				ball.position.y -= space;
-			}
-		}
-	}*/
 }
 
 void setSquareIncludesBall(Ball& ball, Box& includesBall)

@@ -51,22 +51,22 @@ void logic( World& world )
 		}
 		
 		//Guardo la posicion actual de la pelota y el cuadrado que lo engloba
-		Ball ballOld = world.ball;
-		Box includesBallOld = world.includesBall;
+		Ball ballCurrent = world.ball;
+		Box includesBallCurrent = world.includesBall;
 
 		//Muevo la pelota auxiliar a la siguiente posicion y establezco su nuevo includesBall
-		moveBall(ballOld, world.states, world.lastTime);
+		moveBall(ballCurrent, world.states, world.lastTime);
 
-		setSquareIncludesBall(ballOld, includesBallOld);
+		setSquareIncludesBall(ballCurrent, includesBallCurrent);
 		
 		//Compruebbo si en esa nueva posicion hay colision con la nave
 		//En caso afirmativo establezco el estado para que la pelota suba
-		if(checkCollision(includesBallOld, world.ship)) {
+		if(checkCollision(includesBallCurrent, world.ship)) {
 			world.states.ballStatesY = TOTOP;
 		}
 		
 		
-		//Muevo la pelota
+		//muevo la pelota
 		moveBall(world.ball, world.states, world.lastTime);
 	
 
@@ -78,66 +78,7 @@ void logic( World& world )
 	}
 
 
-	setSquareIncludesBall(world.ball, world.includesBall);
-
-	/*if(world.states.stateMoveLeft)
-	{
-		if(world.ship.position.x > 0)
-		{
-			world.ship.position.x -= spaceMove(world.lastTime);
-		}
-
-		world.states.stateMoveLeft = false;
-	}
-	else if(world.states.stateMoveRight)
-	{
-		if((world.ship.position.x + world.ship.width) < 500)
-		{
-			world.ship.position.x += spaceMove(world.lastTime);
-		}
-
-		world.states.stateMoveRight = false;
-	}
-
-	if(!world.states.stateStartGame)
-	{
-		world.ball.position.x = world.ship.position.x + (world.ship.width / 2);
-	}
-	else
-	{
-		moveBall(world.ball, world.states, world.lastTime);
-
-		if(shockWall(world.ball, world.wall))
-		{
-
-			if(world.wall == Walls::RIGHT || world.wall == Walls::LEFT)
-			{
-				if(world.states.stateBallDirectionX)
-				{
-					world.states.stateBallDirectionX = false;
-				}
-				else
-				{
-					world.states.stateBallDirectionX = true;
-				}
-			}
-			else if(world.wall == Walls::TOP)
-			{
-				world.states.stateBallDirectionY = false;
-			}
-			else
-			{
-				world.states.stateGameOver = true;
-			}
-		}
-	}*/
-
-	
-	/*setSquareIncludesBall(world.ball, world.includesBall);*/
-
-	
-
-
+	setSquareIncludesBall(world.ball, world.includesBall);	
 
 	getLastTime(world);
 }
