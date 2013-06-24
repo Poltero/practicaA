@@ -5,6 +5,7 @@ const float speed = 220.0;
 
 enum StatesTypes {
 	NONE,
+	LOAD_LEVELS,
 	START,
 
 	//States for player
@@ -35,6 +36,11 @@ struct Box
 	float width;
 	float height;
 	Color color;
+};
+
+struct Block {
+	Box form;
+	int numberOfImpacts;
 };
 
 struct Star
@@ -78,4 +84,6 @@ struct World
 
 	Ball ball;
 	Box includesBall;
+
+	vector<Block> blocks;
 };

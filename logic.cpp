@@ -7,6 +7,10 @@ void logic( World& world )
 	//creo el reloj del juego
 	buildTime(world.time);
 
+	if(world.states.gameStates == LOAD_LEVELS) {
+		loadLevel(1, world.blocks);
+	}
+
 	//Control de los estados del teclado
 	switch(world.states.playerStates) {
 		case TOLEFT:

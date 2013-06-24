@@ -42,13 +42,21 @@ void paint( const World& world )
 
 	printText(200, 475, chivato, world.colorTime);
 
+	//Pinto los bloques
+
+	for(int i = 0; i < world.blocks.size(); i++) {
+		changeColor(world.blocks[i].form.color);
+
+		paintShip(world.blocks[i].form);
+	}
+
 	//pintar nave
 	paintShip(world.ship);
 
-	paintShip(world.prueba);
+	//paintShip(world.prueba);
 
-	plot(215 + world.ship.width, 40);
-	plot(0, 499);
+	//plot(215 + world.ship.width, 40);
+	//plot(0, 499);
 
 	//pintar pelota
 	paintBall(world.ball);

@@ -1,5 +1,8 @@
 #include "functions.h"
 #include <fstream>
+#include <iostream>
+
+using namespace std;
 
 void paintRectangle(Box box)
 {
@@ -130,6 +133,74 @@ void buildTime(string &timeString)
 	}
 
 	timeString = hourString + ":" + minString + ":" + segString;
+}
+
+vector<Block> loadLevel(int level, vector<Block>& blocks) {
+	ifstream file;
+
+	int dato, posicionX = 20, posicionY = 400, lastPosicionY = 0, lastPosicionX = 0;
+
+	string levelFile = "nivel_";
+	levelFile.append("1.txt");
+
+	file.open(levelFile);
+
+	if(file.is_open())
+	{
+		while(!file.eof())
+		{
+			file >> dato;
+
+			Block block;
+
+			Color color = (Color)(randomInt() % 7);
+
+			if(dato == 1) {
+				block.form.position.x = posicionX;
+				block.form.position.y = posicionY;
+				block.form.width = 40;
+				block.form.height = 20;
+				block.numberOfImpacts = 1;
+				block.form.color = color;
+
+				posicionX += (block.form.width + 2);
+
+				lastPosicionX = block.form.width;
+				lastPosicionY = block.form.height;
+
+				blocks.push_back(block);
+			}
+			else if(dato == 2) {
+				block.form.position.x = posicionX;
+				block.form.position.y = posicionY;
+				block.form.width = 82;
+				block.form.height = 20;
+				block.numberOfImpacts = 3;
+				block.form.color = color;
+
+				posicionX += (block.form.width + 2);
+
+				lastPosicionX = block.form.width;
+				lastPosicionY = block.form.height;
+
+				blocks.push_back(block);
+			}
+			else if(dato == 0) {
+				posicionX += (lastPosicionX + 2);
+			}
+			else if(dato == 9) {
+				posicionY -= (lastPosicionY + 2);
+				posicionX = 20;
+			}
+
+			
+			
+		}
+
+		file.close();
+	}
+
+	return blocks;
 }
 
 void paintShip(Box ship)

@@ -77,4 +77,6 @@ void init( World& world )
 
 	world.states.gameStates = NONE;
 
+	loadLevel(1, world.blocks);
+
 }
