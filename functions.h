@@ -15,7 +15,7 @@ bool shockWall(Box includesBall, int &wall);
 void log(const string msg);
 void setSquareIncludesBall(Ball& ball, Box& includesBall);
 bool checkCollision(Box includesBall, Box rectangle);
-bool checkCollision2(Box includesBall, Box rectangle);
+//bool checkCollision2(Box includesBall, Box rectangle);
 
 Point max(Point p1, Point p2);
 Point min(Point p1, Point p2);

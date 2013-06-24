@@ -208,35 +208,6 @@ void moveBall(Ball& ball, States states, int lastime)
 			ball.position.y -= space;
 			break;
 	}
-
-	/*if(!states.stateGameOver)
-	{
-		if(states.stateBallDirectionX && states.stateBallDirectionY)
-		{
-			ball.position.x += space;
-			ball.position.y += space;
-		}
-		else
-		{
-			if(states.stateBallDirectionX)
-			{
-				ball.position.x += space;
-			}
-			else
-			{
-				ball.position.x -= space;
-			}
-
-			if(states.stateBallDirectionY)
-			{
-				ball.position.y += space;
-			}
-			else
-			{
-				ball.position.y -= space;
-			}
-		}
-	}*/
 }
 
 void setSquareIncludesBall(Ball& ball, Box& includesBall)
@@ -247,36 +218,43 @@ void setSquareIncludesBall(Ball& ball, Box& includesBall)
 
 bool checkCollision(Box includesBall, Box rectangle)
 {
-	float ballCooInicial, ballCooFinal, rectangleCooInicial, rectangleCooFinal;
+	//Lados de los rectangulos
+	float leftIncludesBall, leftRectangle;
+	float rightIncludesBall, rightRectangle;
+	float topIncludesBall, topRectangle;
+	float bottomIncludesBall, bottomRectangle;
 
-	//eje X
-	ballCooInicial = includesBall.position.x;
-	ballCooFinal = includesBall.position.x + includesBall.width;
+	//Calcular los lados del includesBall
+	leftIncludesBall = includesBall.position.x;
+	rightIncludesBall = includesBall.position.x + includesBall.width;
+	topIncludesBall = includesBall.position.y;
+	bottomIncludesBall = includesBall.position.y + includesBall.height;
 
-	rectangleCooInicial = rectangle.position.x;
-	rectangleCooFinal = rectangle.position.x + rectangle.width;
+	//calcular los lados del rectangle
+	leftRectangle = rectangle.position.x;
+	rightRectangle = rectangle.position.x + rectangle.width;
+	topRectangle = rectangle.position.y;
+	bottomRectangle = rectangle.position.y + rectangle.height;
 
-	if(rectangleCooFinal < ballCooInicial || rectangleCooInicial > ballCooFinal)
-	{
+	if(bottomIncludesBall <= topRectangle) {
+		return false;
+	}
+	if(topIncludesBall >= bottomRectangle) {
+		return false;
+	}
+	if(rightIncludesBall <= leftRectangle) {
+		return false;
+	}
+	if(leftIncludesBall >= rightRectangle) {
 		return false;
 	}
 
-	//eje Y
-	ballCooInicial = includesBall.position.y;
-	ballCooFinal = includesBall.position.y + includesBall.width;
-
-	rectangleCooInicial = rectangle.position.y;
-	rectangleCooFinal = rectangle.position.y + rectangle.height;
-
-	if(rectangleCooFinal < ballCooInicial || rectangleCooInicial > ballCooFinal)
-	{
-		return false;
-	}
 
 	return true;
+
 }
 
-bool checkCollision2(Box includesBall, Box rectangle)
+/*bool checkCollision2(Box includesBall, Box rectangle)
 {
 	Point maxIncludesBall, minIncludesBall, maxRectangle, minRectangle, maxPointCollision, minPointCollision;
 
@@ -297,7 +275,7 @@ bool checkCollision2(Box includesBall, Box rectangle)
 		{
 			return true;
 		}
-	}*/
+	}
 
 	if(maxPointCollision.x < minPointCollision.x)
 	{
@@ -306,7 +284,7 @@ bool checkCollision2(Box includesBall, Box rectangle)
 
 	return false;
 	
-}
+}*/
 
 Point max(Point p1, Point p2)
 {
