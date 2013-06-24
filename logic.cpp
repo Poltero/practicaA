@@ -9,25 +9,25 @@ void logic( World& world )
 
 	//Control de los estados del teclado
 	switch(world.states.playerStates) {
-	case TOLEFT:
-		if(world.ship.position.x >= 0)
-		{
-			world.ship.position.x -= spaceMove(world.lastTime);
-		}
+		case TOLEFT:
+			if(world.ship.position.x >= 0)
+			{
+				world.ship.position.x -= spaceMove(world.lastTime);
+			}
 
-		world.states.playerStates = NONE;
+			world.states.playerStates = NONE;
 
-		break;
+			break;
 
-	case TORIGTH:
-		if((world.ship.position.x + world.ship.width) <= 500)
-		{
-			world.ship.position.x += spaceMove(world.lastTime);
-		}
+		case TORIGTH:
+			if((world.ship.position.x + world.ship.width) <= 500)
+			{
+				world.ship.position.x += spaceMove(world.lastTime);
+			}
 
-		world.states.playerStates = NONE;
+			world.states.playerStates = NONE;
 
-		break;
+			break;
 
 	}
 
