@@ -62,10 +62,10 @@ void paint( const World& world )
 
 	plot(world.includesBall.position.x, world.includesBall.position.y);
 
-	if(checkCollision2(world.includesBall, world.ship))
+	/*if(checkCollision2(world.includesBall, world.ship))
 	{
 		printText(300, 475, "colision!", world.colorTime);
-	}
+	}*/
 
 
 }
