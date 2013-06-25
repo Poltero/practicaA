@@ -45,9 +45,12 @@ void paint( const World& world )
 	//Pinto los bloques
 
 	for(int i = 0; i < world.blocks.size(); i++) {
-		changeColor(world.blocks[i].form.color);
+		if(world.blocks[i].numberOfImpacts > 0) {
+		
+			changeColor(world.blocks[i].form.color);
 
-		paintShip(world.blocks[i].form);
+			paintShip(world.blocks[i].form);
+		}
 	}
 
 	//pintar nave

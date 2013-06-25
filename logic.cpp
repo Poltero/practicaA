@@ -72,6 +72,28 @@ void logic( World& world )
 		
 		//muevo la pelota
 		moveBall(world.ball, world.states, world.lastTime);
+
+
+		//Gestion de choques con los bloques
+
+		int size = world.blocks.size();
+
+		for(int i = 0; i < size; i++) {
+			if(world.blocks[i].numberOfImpacts > 0) {
+				if(checkCollision(world.includesBall, world.blocks[i].form)) {
+					if(world.blocks[i].numberOfImpacts > 1) {
+						world.blocks[i].form.color = RED;
+					}
+					world.blocks[i].numberOfImpacts--;
+
+					if(world.states.ballStatesY == TOTOP) {
+						world.states.ballStatesY = TODOWN;
+					} else {
+						world.states.ballStatesY = TOTOP;
+					}
+				}
+			}
+		}
 	
 
 		
