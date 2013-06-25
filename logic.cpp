@@ -93,12 +93,10 @@ void logic( World& world )
 						world.states.ballStatesY = TOTOP;
 					}
 
-					if(ballCurrent.position.x > (world.blocks[i].form.position.x + (world.blocks[i].form.width / 2))) {
+					if(ballCurrent.position.x > (world.ship.position.x + world.ship.width - 10)) {
 						world.states.ballStatesX = TORIGTH;
-					} else if((ballCurrent.position.x < (world.blocks[i].form.position.x + (world.blocks[i].form.width / 2)))){
+					} else if((ballCurrent.position.x < (world.blocks[i].form.position.x + 10))){
 						world.states.ballStatesX = TOLEFT;
-					} else {
-						world.states.ballStatesX = NONE;
 					}
 				}
 			}
