@@ -29,7 +29,6 @@ void init( World& world )
 	world.ship.color = GREEN;
 
 	//inicializar posicion y radio de la pelota
-	world.ball.position.y = 40;
 	world.ball.radius = 10;
 	world.ball.color = BLUE;
 
@@ -75,8 +74,15 @@ void init( World& world )
 
 
 
-	world.states.gameStates = NONE;
+	world.states.gameStates = LOAD_LEVELS;
 
-	loadLevel(1, world.blocks);
+	Level level1, level2, level3, level4;
 
+	level1.file = "nivel_1.txt";
+	level1.colorBlocks = (Color) -1;
+	level1.lives = 2;
+	world.levels.push_back(level1);
+	
+	
+	world.numberLevel = 0;
 }

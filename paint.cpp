@@ -38,9 +38,12 @@ void paint( const World& world )
 	printText(10, 475, "TIME:", world.colorTime);
 	printText(70, 475, world.time, world.colorTime);
 
-	string chivato = int2string(world.ship.position.x);
+	//string chivato = int2string(world.ship.position.x);
 
-	printText(200, 475, chivato, world.colorTime);
+	string livesPlayer = int2string(world.lives);
+
+	printText(250, 475, "Lives: ", world.colorTime);
+	printText(300, 475, livesPlayer, world.colorTime);
 
 	//Pinto los bloques
 
@@ -77,6 +80,12 @@ void paint( const World& world )
 	{
 		printText(300, 475, "colision!", world.colorTime);
 	}*/
+
+
+	if(world.states.gameStates == GAMEOVER) {
+		printText(200, 250, "GAME OVER", world.colorTime);
+		printText(155, 200, "Press space to continue", world.colorTime);
+	}
 
 
 }

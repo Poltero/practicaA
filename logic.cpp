@@ -8,7 +8,12 @@ void logic( World& world )
 	buildTime(world.time);
 
 	if(world.states.gameStates == LOAD_LEVELS) {
-		loadLevel(1, world.blocks);
+		loadLevel(world.levels[world.numberLevel], world.blocks);
+		world.lives = world.levels[world.numberLevel].lives;
+
+		world.ball.position.y = 40;
+
+		world.states.gameStates = NONE;
 	}
 
 	//Control de los estados del teclado
@@ -39,20 +44,7 @@ void logic( World& world )
 
 	if(world.states.gameStates == START) {
 		
-		if(shockWall(world.includesBall, world.wall)) {
-			if(world.wall == Walls::RIGHT) {
-				world.states.ballStatesX = TOLEFT;
-
-
-			}
-			else if(world.wall == Walls::LEFT) {
-				world.states.ballStatesX = TORIGTH;
-			}
-			else if(world.wall == Walls::TOP) {
-				world.states.ballStatesY = TODOWN;
-			}
-
-		}
+		
 		
 		//Guardo la posicion actual de la pelota y el cuadrado que lo engloba
 		Ball ballCurrent = world.ball;
@@ -96,10 +88,40 @@ void logic( World& world )
 		moveBall(world.ball, world.states, world.lastTime);
 
 
+		if(shockWall(world.includesBall, world.wall)) {
+			if(world.wall == Walls::RIGHT) {
+				world.states.ballStatesX = TOLEFT;
+
+
+			}
+			else if(world.wall == Walls::LEFT) {
+				world.states.ballStatesX = TORIGTH;
+			}
+			else if(world.wall == Walls::TOP) {
+				world.states.ballStatesY = TODOWN;
+			}
+			else if(world.wall == Walls::DOWN) {
+				if(world.lives > 0) {
+					world.states.gameStates = NONE;
+					world.ball.position.y = 40;
+					world.lives--;
+				} else {
+					world.states.gameStates = GAMEOVER;
+				}
+			}
+
+		}
+
+
 		
 	
 	
-	}else {
+	}else if(world.states.gameStates == GAMEOVER) {
+		if(world.blocks.size() > 0) {
+			world.blocks.erase(world.blocks.begin()+world.blocks.size()-1);
+		}
+	}
+	else {
 		world.ball.position.x = world.ship.position.x + (world.ship.width / 2);
 	}
 

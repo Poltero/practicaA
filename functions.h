@@ -17,7 +17,7 @@ void setSquareIncludesBall(Ball& ball, Box& includesBall);
 bool checkCollision(Box includesBall, Box rectangle);
 //bool checkCollision2(Box includesBall, Box rectangle);
 
-vector<Block> loadLevel(int level, vector<Block>& blocks);
+vector<Block> loadLevel(Level level, vector<Block>& blocks);
 
 Point max(Point p1, Point p2);
 Point min(Point p1, Point p2);

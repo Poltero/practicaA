@@ -135,7 +135,7 @@ void buildTime(string &timeString)
 	timeString = hourString + ":" + minString + ":" + segString;
 }
 
-vector<Block> loadLevel(int level, vector<Block>& blocks) {
+vector<Block> loadLevel(Level level, vector<Block>& blocks) {
 	ifstream file;
 
 	int dato, posicionX = 20, posicionY = 400, lastPosicionY = 0, lastPosicionX = 0;
@@ -143,7 +143,7 @@ vector<Block> loadLevel(int level, vector<Block>& blocks) {
 	string levelFile = "nivel_";
 	levelFile.append("1.txt");
 
-	file.open(levelFile);
+	file.open(level.file);
 
 	if(file.is_open())
 	{
@@ -152,8 +152,13 @@ vector<Block> loadLevel(int level, vector<Block>& blocks) {
 			file >> dato;
 
 			Block block;
+			Color color;
 
-			Color color = (Color)((randomInt() % 4) + 3);
+			if(level.colorBlocks > 0) {
+				color = level.colorBlocks;
+			} else {
+				color = (Color)((randomInt() % 4) + 3);
+			}
 
 			if(dato == 1) {
 				block.form.position.x = posicionX;

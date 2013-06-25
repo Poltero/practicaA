@@ -8,6 +8,7 @@ enum StatesTypes {
 	NONE,
 	LOAD_LEVELS,
 	START,
+	GAMEOVER,
 
 	//States for player
 	TOLEFT,
@@ -23,6 +24,13 @@ struct States
 	int ballStatesX;
 	int ballStatesY;
 	int gameStates;
+};
+
+struct Level
+{
+	string file;
+	Color colorBlocks;
+	int lives;
 };
 
 struct Point
@@ -87,4 +95,8 @@ struct World
 	Box includesBall;
 
 	vector<Block> blocks;
+	vector<Level> levels;
+
+	int numberLevel;
+	int lives;
 };
