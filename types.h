@@ -9,6 +9,7 @@ enum StatesTypes {
 	LOAD_LEVELS,
 	START,
 	GAMEOVER,
+	WIN,
 
 	//States for player
 	TOLEFT,
@@ -100,4 +101,6 @@ struct World
 	int numberLevel;
 	int lives;
 	int score;
+
+	int countBlocks;
 };

@@ -82,6 +82,11 @@ void init( World& world )
 	level1.colorBlocks = (Color) -1;
 	level1.lives = 1;
 	world.levels.push_back(level1);
+
+	level2.file = "nivel_2.txt";
+	level2.colorBlocks = (Color) PINK;
+	level2.lives = 2;
+	world.levels.push_back(level2);
 	
 	
 	world.numberLevel = 0;

@@ -7,6 +7,7 @@ void logic( World& world )
 	//creo el reloj del juego
 	buildTime(world.time);
 
+
 	if(world.states.gameStates == LOAD_LEVELS) {
 		loadLevel(world.levels[world.numberLevel], world.blocks);
 		world.lives = world.levels[world.numberLevel].lives;
@@ -14,6 +15,8 @@ void logic( World& world )
 		world.ball.position.y = 40;
 
 		world.states.gameStates = NONE;
+
+		world.countBlocks = 0;
 	}
 
 	//Control de los estados del teclado
@@ -60,6 +63,12 @@ void logic( World& world )
 		if(checkCollision(includesBallCurrent, world.ship)) {
 			world.states.ballStatesY = TOTOP;
 			world.score += 1;
+
+			if(ballCurrent.position.x > (world.ship.position.x + (world.ship.width / 2))) {
+				world.states.ballStatesX = TORIGTH;
+			}else {
+				world.states.ballStatesX = TOLEFT;
+			}
 		}
 		
 		
@@ -72,6 +81,8 @@ void logic( World& world )
 				if(checkCollision(includesBallCurrent, world.blocks[i].form)) {
 					if(world.blocks[i].numberOfImpacts > 1) {
 						world.blocks[i].form.color = GRAY;
+					}else {
+						world.countBlocks++;
 					}
 					world.blocks[i].numberOfImpacts--;
 					world.score += 10;
@@ -81,8 +92,23 @@ void logic( World& world )
 					} else {
 						world.states.ballStatesY = TOTOP;
 					}
+
+					if(ballCurrent.position.x > (world.blocks[i].form.position.x + (world.blocks[i].form.width / 2))) {
+						world.states.ballStatesX = TORIGTH;
+					} else if((ballCurrent.position.x < (world.blocks[i].form.position.x + (world.blocks[i].form.width / 2)))){
+						world.states.ballStatesX = TOLEFT;
+					} else {
+						world.states.ballStatesX = NONE;
+					}
 				}
 			}
+		}
+
+		if(world.countBlocks == size) {
+			world.states.gameStates = WIN;
+			world.numberLevel++;
+
+			world.ball.position.y = -10;
 		}
 
 
@@ -130,7 +156,7 @@ void logic( World& world )
 	}
 
 
-	setSquareIncludesBall(world.ball, world.includesBall);	
+	setSquareIncludesBall(world.ball, world.includesBall);
 
 	getLastTime(world);
 }

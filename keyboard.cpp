@@ -33,9 +33,9 @@ void keyPress( const KeyType key, World& world )
 		case KEY_FIRE:
 			if(world.states.gameStates == NONE) {
 				world.states.gameStates = START;
-				world.states.ballStatesX = TOLEFT;
+				world.states.ballStatesX = NONE;
 				world.states.ballStatesY = TOTOP;
-			}else if(world.states.gameStates == GAMEOVER) {
+			}else if(world.states.gameStates == GAMEOVER || world.states.gameStates == WIN) {
 				world.states.gameStates = LOAD_LEVELS;
 			}
 			break;

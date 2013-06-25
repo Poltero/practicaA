@@ -89,6 +89,10 @@ void paint( const World& world )
 	if(world.states.gameStates == GAMEOVER) {
 		printText(200, 250, "GAME OVER", world.colorTime);
 		printText(155, 200, "Press space to continue", world.colorTime);
+
+	}else if(world.states.gameStates == WIN) {
+		printText(200, 250, "YOU WIN", world.colorTime);
+		printText(145, 200, "Press space to continue next level", world.colorTime);
 	}
 
 
