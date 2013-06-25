@@ -6,15 +6,15 @@ void init( World& world )
 {
 	//inicializar infoBox
 	world.infoBox.position.x = 0;
-	world.infoBox.position.y = 500;
-	world.infoBox.width = 500;
+	world.infoBox.position.y = 499;
+	world.infoBox.width = 499;
 	world.infoBox.height = 40;
 	world.infoBox.color = GREEN;
 
 	//inicializar gameBox
 	world.gameBox.position.x = 0;
 	world.gameBox.position.y = 460;
-	world.gameBox.width = 500;
+	world.gameBox.width = 499;
 	world.gameBox.height = 460;
 	world.gameBox.color = YELLOW;
 

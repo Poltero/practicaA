@@ -1,6 +1,6 @@
 #pragma once
 
-const float SPEEDSHIP = 300.0;
+const float SPEEDSHIP = 380.0;
 const float SPEEDBALL = 220.0;
 
 

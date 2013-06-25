@@ -40,14 +40,18 @@ void paint( const World& world )
 
 	//string chivato = int2string(world.ship.position.x);
 
+	string levelPlayer = int2string(world.numberLevel+1);
 	string livesPlayer = int2string(world.lives);
 	string scorePlayer = int2string(world.score);
 
-	printText(200, 475, "Lives: ", world.colorTime);
-	printText(250, 475, livesPlayer, world.colorTime);
+	printText(170, 475, "LEVEL: ", world.colorTime);
+	printText(240, 475, levelPlayer, world.colorTime);
 
-	printText(350, 475, "Score: ", world.colorTime);
-	printText(410, 475, scorePlayer, world.colorTime);
+	printText(270, 475, "Lives: ", world.colorTime);
+	printText(325, 475, livesPlayer, world.colorTime);
+
+	printText(370, 475, "Score: ", world.colorTime);
+	printText(430, 475, scorePlayer, world.colorTime);
 
 	//Pinto los bloques
 
@@ -92,7 +96,7 @@ void paint( const World& world )
 
 	}else if(world.states.gameStates == WIN) {
 		printText(200, 250, "YOU WIN", world.colorTime);
-		printText(125, 200, "Press space to continue next level", world.colorTime);
+		printText(110, 200, "Press space to continue next level", world.colorTime);
 	}
 
 
