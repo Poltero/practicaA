@@ -16,7 +16,7 @@ void logic( World& world )
 		case TOLEFT:
 			if(world.ship.position.x >= 0)
 			{
-				world.ship.position.x -= spaceMove(world.lastTime);
+				world.ship.position.x -= spaceMove(world.lastTime, SPEEDSHIP);
 			}
 
 			world.states.playerStates = NONE;
@@ -26,7 +26,7 @@ void logic( World& world )
 		case TORIGTH:
 			if((world.ship.position.x + world.ship.width) <= 500)
 			{
-				world.ship.position.x += spaceMove(world.lastTime);
+				world.ship.position.x += spaceMove(world.lastTime, SPEEDSHIP);
 			}
 
 			world.states.playerStates = NONE;
@@ -70,19 +70,15 @@ void logic( World& world )
 		}
 		
 		
-		//muevo la pelota
-		moveBall(world.ball, world.states, world.lastTime);
-
-
 		//Gestion de choques con los bloques
 
 		int size = world.blocks.size();
 
 		for(int i = 0; i < size; i++) {
 			if(world.blocks[i].numberOfImpacts > 0) {
-				if(checkCollision(world.includesBall, world.blocks[i].form)) {
+				if(checkCollision(includesBallCurrent, world.blocks[i].form)) {
 					if(world.blocks[i].numberOfImpacts > 1) {
-						world.blocks[i].form.color = RED;
+						world.blocks[i].form.color = WHITE;
 					}
 					world.blocks[i].numberOfImpacts--;
 
@@ -94,7 +90,11 @@ void logic( World& world )
 				}
 			}
 		}
-	
+
+
+		//muevo la pelota
+		moveBall(world.ball, world.states, world.lastTime);
+
 
 		
 	

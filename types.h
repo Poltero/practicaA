@@ -1,6 +1,7 @@
 #pragma once
 
-const float speed = 220.0;
+const float SPEEDSHIP = 300.0;
+const float SPEEDBALL = 220.0;
 
 
 enum StatesTypes {

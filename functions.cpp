@@ -153,7 +153,7 @@ vector<Block> loadLevel(int level, vector<Block>& blocks) {
 
 			Block block;
 
-			Color color = (Color)((randomInt() % 7) + 2);
+			Color color = (Color)((randomInt() % 5) + 2);
 
 			if(dato == 1) {
 				block.form.position.x = posicionX;
@@ -215,7 +215,7 @@ void paintBall(Ball ball)
 	drawCircle(ball.position.x, ball.position.y, ball.radius);
 }
 
-float spaceMove(float lastime)
+float spaceMove(float lastime, float speed)
 {
 	float timepassed = getTime() - lastime;
 
@@ -260,7 +260,7 @@ bool shockWall(Box includesBall, int &wall)
 
 void moveBall(Ball& ball, States states, int lastime)
 {
-	float space = spaceMove(lastime);
+	float space = spaceMove(lastime, SPEEDBALL);
 
 	switch(states.ballStatesX) {
 		case TOLEFT:

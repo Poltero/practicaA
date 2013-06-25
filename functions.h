@@ -9,7 +9,7 @@ void buildTime(string &timeString);
 void paintShip(Box ship);
 void paintBall(Ball ball);
 void getLastTime(World &world);
-float spaceMove(float lastime);
+float spaceMove(float lastime, float speed);
 void moveBall(Ball& ball, States states, int lastime);
 bool shockWall(Box includesBall, int &wall);
 void log(const string msg);
