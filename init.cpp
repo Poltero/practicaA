@@ -80,9 +80,10 @@ void init( World& world )
 
 	level1.file = "nivel_1.txt";
 	level1.colorBlocks = (Color) -1;
-	level1.lives = 2;
+	level1.lives = 1;
 	world.levels.push_back(level1);
 	
 	
 	world.numberLevel = 0;
+	world.score = 0;
 }

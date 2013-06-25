@@ -99,4 +99,5 @@ struct World
 
 	int numberLevel;
 	int lives;
+	int score;
 };

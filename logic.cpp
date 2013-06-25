@@ -59,6 +59,7 @@ void logic( World& world )
 		//En caso afirmativo establezco el estado para que la pelota suba
 		if(checkCollision(includesBallCurrent, world.ship)) {
 			world.states.ballStatesY = TOTOP;
+			world.score += 1;
 		}
 		
 		
@@ -73,6 +74,7 @@ void logic( World& world )
 						world.blocks[i].form.color = GRAY;
 					}
 					world.blocks[i].numberOfImpacts--;
+					world.score += 10;
 
 					if(world.states.ballStatesY == TOTOP) {
 						world.states.ballStatesY = TODOWN;
@@ -120,6 +122,8 @@ void logic( World& world )
 		if(world.blocks.size() > 0) {
 			world.blocks.erase(world.blocks.begin()+world.blocks.size()-1);
 		}
+
+		world.score = 0;
 	}
 	else {
 		world.ball.position.x = world.ship.position.x + (world.ship.width / 2);

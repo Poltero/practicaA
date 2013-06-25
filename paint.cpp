@@ -41,9 +41,13 @@ void paint( const World& world )
 	//string chivato = int2string(world.ship.position.x);
 
 	string livesPlayer = int2string(world.lives);
+	string scorePlayer = int2string(world.score);
 
-	printText(250, 475, "Lives: ", world.colorTime);
-	printText(300, 475, livesPlayer, world.colorTime);
+	printText(200, 475, "Lives: ", world.colorTime);
+	printText(250, 475, livesPlayer, world.colorTime);
+
+	printText(350, 475, "Score: ", world.colorTime);
+	printText(410, 475, scorePlayer, world.colorTime);
 
 	//Pinto los bloques
 
