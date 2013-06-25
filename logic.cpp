@@ -64,9 +64,9 @@ void logic( World& world )
 			world.states.ballStatesY = TOTOP;
 			world.score += 1;
 
-			if(ballCurrent.position.x > (world.ship.position.x + (world.ship.width / 2))) {
+			if(ballCurrent.position.x > (world.ship.position.x + world.ship.width - 10)) {
 				world.states.ballStatesX = TORIGTH;
-			}else {
+			}else if(ballCurrent.position.x < (world.ship.position.x + 10)){
 				world.states.ballStatesX = TOLEFT;
 			}
 		}

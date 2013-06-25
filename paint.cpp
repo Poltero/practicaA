@@ -92,7 +92,7 @@ void paint( const World& world )
 
 	}else if(world.states.gameStates == WIN) {
 		printText(200, 250, "YOU WIN", world.colorTime);
-		printText(145, 200, "Press space to continue next level", world.colorTime);
+		printText(125, 200, "Press space to continue next level", world.colorTime);
 	}
 
 
