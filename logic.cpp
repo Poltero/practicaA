@@ -78,7 +78,7 @@ void logic( World& world )
 			if(world.blocks[i].numberOfImpacts > 0) {
 				if(checkCollision(includesBallCurrent, world.blocks[i].form)) {
 					if(world.blocks[i].numberOfImpacts > 1) {
-						world.blocks[i].form.color = WHITE;
+						world.blocks[i].form.color = GRAY;
 					}
 					world.blocks[i].numberOfImpacts--;
 

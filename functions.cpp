@@ -153,7 +153,7 @@ vector<Block> loadLevel(int level, vector<Block>& blocks) {
 
 			Block block;
 
-			Color color = (Color)((randomInt() % 5) + 2);
+			Color color = (Color)((randomInt() % 4) + 3);
 
 			if(dato == 1) {
 				block.form.position.x = posicionX;
@@ -175,7 +175,7 @@ vector<Block> loadLevel(int level, vector<Block>& blocks) {
 				block.form.position.y = posicionY;
 				block.form.width = 82;
 				block.form.height = 20;
-				block.numberOfImpacts = 3;
+				block.numberOfImpacts = 2;
 				block.form.color = color;
 
 				posicionX += (block.form.width + 2);
