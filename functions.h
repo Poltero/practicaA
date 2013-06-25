@@ -9,13 +9,15 @@ void buildTime(string &timeString);
 void paintShip(Box ship);
 void paintBall(Ball ball);
 void getLastTime(World &world);
-float spaceMove(float lastime);
+float spaceMove(float lastime, float speed);
 void moveBall(Ball& ball, States states, int lastime);
 bool shockWall(Box includesBall, int &wall);
 void log(const string msg);
 void setSquareIncludesBall(Ball& ball, Box& includesBall);
 bool checkCollision(Box includesBall, Box rectangle);
 //bool checkCollision2(Box includesBall, Box rectangle);
+
+vector<Block> loadLevel(Level level, vector<Block>& blocks);
 
 Point max(Point p1, Point p2);
 Point min(Point p1, Point p2);

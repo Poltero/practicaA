@@ -1,11 +1,15 @@
 #pragma once
 
-const float speed = 220.0;
+const float SPEEDSHIP = 300.0;
+const float SPEEDBALL = 220.0;
 
 
 enum StatesTypes {
 	NONE,
+	LOAD_LEVELS,
 	START,
+	GAMEOVER,
+	WIN,
 
 	//States for player
 	TOLEFT,
@@ -23,6 +27,13 @@ struct States
 	int gameStates;
 };
 
+struct Level
+{
+	string file;
+	Color colorBlocks;
+	int lives;
+};
+
 struct Point
 {
 	float x;
@@ -35,6 +46,11 @@ struct Box
 	float width;
 	float height;
 	Color color;
+};
+
+struct Block {
+	Box form;
+	int numberOfImpacts;
 };
 
 struct Star
@@ -78,4 +94,13 @@ struct World
 
 	Ball ball;
 	Box includesBall;
+
+	vector<Block> blocks;
+	vector<Level> levels;
+
+	int numberLevel;
+	int lives;
+	int score;
+
+	int countBlocks;
 };

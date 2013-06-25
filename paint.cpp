@@ -38,17 +38,35 @@ void paint( const World& world )
 	printText(10, 475, "TIME:", world.colorTime);
 	printText(70, 475, world.time, world.colorTime);
 
-	string chivato = int2string(world.ship.position.x);
+	//string chivato = int2string(world.ship.position.x);
 
-	printText(200, 475, chivato, world.colorTime);
+	string livesPlayer = int2string(world.lives);
+	string scorePlayer = int2string(world.score);
+
+	printText(200, 475, "Lives: ", world.colorTime);
+	printText(250, 475, livesPlayer, world.colorTime);
+
+	printText(350, 475, "Score: ", world.colorTime);
+	printText(410, 475, scorePlayer, world.colorTime);
+
+	//Pinto los bloques
+
+	for(int i = 0; i < world.blocks.size(); i++) {
+		if(world.blocks[i].numberOfImpacts > 0) {
+		
+			changeColor(world.blocks[i].form.color);
+
+			paintShip(world.blocks[i].form);
+		}
+	}
 
 	//pintar nave
 	paintShip(world.ship);
 
-	paintShip(world.prueba);
+	//paintShip(world.prueba);
 
-	plot(215 + world.ship.width, 40);
-	plot(0, 499);
+	//plot(215 + world.ship.width, 40);
+	//plot(0, 499);
 
 	//pintar pelota
 	paintBall(world.ball);
@@ -66,6 +84,16 @@ void paint( const World& world )
 	{
 		printText(300, 475, "colision!", world.colorTime);
 	}*/
+
+
+	if(world.states.gameStates == GAMEOVER) {
+		printText(200, 250, "GAME OVER", world.colorTime);
+		printText(155, 200, "Press space to continue", world.colorTime);
+
+	}else if(world.states.gameStates == WIN) {
+		printText(200, 250, "YOU WIN", world.colorTime);
+		printText(125, 200, "Press space to continue next level", world.colorTime);
+	}
 
 
 }

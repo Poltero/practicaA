@@ -1,5 +1,8 @@
 #include "functions.h"
 #include <fstream>
+#include <iostream>
+
+using namespace std;
 
 void paintRectangle(Box box)
 {
@@ -132,6 +135,79 @@ void buildTime(string &timeString)
 	timeString = hourString + ":" + minString + ":" + segString;
 }
 
+vector<Block> loadLevel(Level level, vector<Block>& blocks) {
+	ifstream file;
+
+	int dato, posicionX = 20, posicionY = 400, lastPosicionY = 0, lastPosicionX = 0;
+
+	string levelFile = "nivel_";
+	levelFile.append("1.txt");
+
+	file.open(level.file);
+
+	if(file.is_open())
+	{
+		while(!file.eof())
+		{
+			file >> dato;
+
+			Block block;
+			Color color;
+
+			if(level.colorBlocks > 0) {
+				color = level.colorBlocks;
+			} else {
+				color = (Color)((randomInt() % 4) + 3);
+			}
+
+			if(dato == 1) {
+				block.form.position.x = posicionX;
+				block.form.position.y = posicionY;
+				block.form.width = 40;
+				block.form.height = 20;
+				block.numberOfImpacts = 1;
+				block.form.color = color;
+
+				posicionX += (block.form.width + 2);
+
+				lastPosicionX = block.form.width;
+				lastPosicionY = block.form.height;
+
+				blocks.push_back(block);
+			}
+			else if(dato == 2) {
+				block.form.position.x = posicionX;
+				block.form.position.y = posicionY;
+				block.form.width = 82;
+				block.form.height = 20;
+				block.numberOfImpacts = 2;
+				block.form.color = color;
+
+				posicionX += (block.form.width + 2);
+
+				lastPosicionX = block.form.width;
+				lastPosicionY = block.form.height;
+
+				blocks.push_back(block);
+			}
+			else if(dato == 0) {
+				posicionX += (lastPosicionX + 2);
+			}
+			else if(dato == 9) {
+				posicionY -= (lastPosicionY + 2);
+				posicionX = 20;
+			}
+
+			
+			
+		}
+
+		file.close();
+	}
+
+	return blocks;
+}
+
 void paintShip(Box ship)
 {
 	changeColor(ship.color);
@@ -144,7 +220,7 @@ void paintBall(Ball ball)
 	drawCircle(ball.position.x, ball.position.y, ball.radius);
 }
 
-float spaceMove(float lastime)
+float spaceMove(float lastime, float speed)
 {
 	float timepassed = getTime() - lastime;
 
@@ -189,7 +265,7 @@ bool shockWall(Box includesBall, int &wall)
 
 void moveBall(Ball& ball, States states, int lastime)
 {
-	float space = spaceMove(lastime);
+	float space = spaceMove(lastime, SPEEDBALL);
 
 	switch(states.ballStatesX) {
 		case TOLEFT:
